@@ -1,13 +1,11 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
+$dbcon = mysqli_connect("localhost","root","","inventory");
 
-try {
-  $conn = new PDO("mysql:host=$servername;dbname=inventory", $username, $password);
-  // set the PDO error mode to exception
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
- } catch(PDOException $e) {
-  echo "Connection failed: " . $e->getMessage();
-}
+// Check connection
+if (mysqli_connect_errno())
+  {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+  date_default_timezone_set("Asia/Manila"); 
 ?>
